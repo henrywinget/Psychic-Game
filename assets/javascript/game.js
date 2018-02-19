@@ -6,7 +6,7 @@ var losses = 0;
 var guesses = 10;
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s","t", "u","v","w","x","y","z"];
 var winsInline = document.getElementById("wins");
-var lossesInLine = document.getElementById("losses");
+var lossesInline = document.getElementById("losses");
 var userGuessedIn = document.getElementById("guessed-letter");
 var guessesRemaining = document.getElementById("guesses-remaining");
 
@@ -16,14 +16,13 @@ console.log(cpuLetter);
 
 function updateStats(){
     winsInline.textContent = wins;
-    lossesInLine.textContent = losses;
+    lossesInline.textContent = losses;
     userGuessedIn.textContent = userGuessedLetters;
     guessesRemaining.textContent = guesses;
 }
 
 document.onkeyup = function(event){
 
-    updateStats();
     //Registers a letter per user key
     
     userLetter = event.key
@@ -34,12 +33,12 @@ document.onkeyup = function(event){
         wins++;
         guesses = 10;
         userGuessedIn = [];
-        cpuLetter = letters[Math.floor(Math.random() * letters.length)];;
+        cpuLetter = letters[Math.floor(Math.random() * letters.length)];
+        console.log(cpuLetter);
+        confirm("Good guess... all right, ready for another one?");
+
     }
 
-    if (userLetter === userGuessedLetters){
-        guesses = guesses;
-    }
     else {
         guesses--;
 
@@ -48,9 +47,13 @@ document.onkeyup = function(event){
         losses++;
         guesses = 10;
         userGuessedIn = [];
-        cpuLetter = letters[Math.floor(Math.random() * letters.length)];;
+        cpuLetter = letters[Math.floor(Math.random() * letters.length)];
+        console.log(cpuLetter);
+        confirm("You'll never know what's going on in my head!! Try again?");
     }
     
     updateStats();
+
 }
+
 updateStats();
