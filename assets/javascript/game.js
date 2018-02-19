@@ -17,7 +17,6 @@ console.log(cpuLetter);
 function updateStats(){
     winsInline.textContent = wins;
     lossesInline.textContent = losses;
-    userGuessedIn.textContent = userGuessedLetters;
     guessesRemaining.textContent = guesses;
 }
 
@@ -32,7 +31,7 @@ document.onkeyup = function(event){
     if (userLetter === cpuLetter){
         wins++;
         guesses = 10;
-        userGuessedIn = [];
+        userGuessedLetters = [];
         cpuLetter = letters[Math.floor(Math.random() * letters.length)];
         console.log(cpuLetter);
         confirm("Good guess... all right, ready for another one?");
@@ -41,12 +40,13 @@ document.onkeyup = function(event){
 
     else {
         guesses--;
-
+    
     }
-    if(guesses ==0){
+    
+    if(guesses == 0){
         losses++;
         guesses = 10;
-        userGuessedIn = [];
+        userGuessedLetters = [];
         cpuLetter = letters[Math.floor(Math.random() * letters.length)];
         console.log(cpuLetter);
         confirm("You'll never know what's going on in my head!! Try again?");
