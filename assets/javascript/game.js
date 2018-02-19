@@ -23,12 +23,12 @@ function updateStats(){
 document.onkeyup = function(event){
 
     //Registers a letter per user key
-    
-    userLetter = event.key
+    for (i = 0; i < letters.length; i++);
+    userLetter = event.key;
     userGuessedLetters.push(userLetter);
     userGuessedIn.textContent = userGuessedLetters + ", ";
 
-    if (userLetter === cpuLetter){
+    if (userLetter === letters[i]  === cpuLetter){
         wins++;
         guesses = 10;
         userGuessedLetters = [];
@@ -38,11 +38,11 @@ document.onkeyup = function(event){
 
     }
 
-    else {
+    if (userLetter === letters[i] != cpuLetter){
         guesses--;
     
     }
-    
+
     if(guesses == 0){
         losses++;
         guesses = 10;
