@@ -28,6 +28,7 @@ document.onkeyup = function(event){
     userGuessedLetters.push(userLetter);
     userGuessedIn.textContent = userGuessedLetters + ", ";
 
+    //When user guesses correctly, wins + 1 and guesses/guessed letters reset
     if (userLetter === letters[i]  === cpuLetter){
         wins++;
         guesses = 10;
@@ -37,12 +38,13 @@ document.onkeyup = function(event){
         confirm("Good guess... all right, ready for another one?");
 
     }
-
+    //When user doesn't guess correctly, guesses drop by 1
     if (userLetter === letters[i] != cpuLetter){
         guesses--;
     
     }
-
+    
+    //When guesses reach 0, player adds 1 loss
     if(guesses == 0){
         losses++;
         guesses = 10;
@@ -52,8 +54,9 @@ document.onkeyup = function(event){
         confirm("You'll never know what's going on in my head!! Try again?");
     }
     
+    //Updates statistics
     updateStats();
 
 }
-
+//Updates statistics
 updateStats();
